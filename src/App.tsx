@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Calculator, Users, DollarSign, TrendingUp, ArrowDown } from 'lucide-react';
 
-export default function PrysmSalesCalculator() {
+export default function App() {
   const [data, setData] = useState({
     affiliates: 0, participationRate: 0, monthlyScans: 0, conversionRate: 0, monthlyPurchase: 0
   });
 
-  const handleChange = (field, value) => {
+  const handleChange = (field: string, value: string) => {
     setData(prev => ({ ...prev, [field]: parseFloat(value.replace(/[$,%]/g, '')) || 0 }));
   };
 
-  const format = (field, value) => {
+  const format = (field: string, value: number) => {
     if (!value) return '';
     if (field.includes('Rate')) return value + '%';
     if (field === 'monthlyPurchase') return '$' + value;
@@ -23,24 +23,8 @@ export default function PrysmSalesCalculator() {
   const monthlySales = buyers * data.monthlyPurchase;
   const annualSales = monthlySales * 12;
 
-  const currency = val => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2 });
-  const number = val => val.toLocaleString('en-US', { maximumFractionDigits: 0 });
-
-  const inputs = [
-    { label: 'Monthly Affiliate or Sales Leader Count', field: 'affiliates', placeholder: '100,000 affiliates or 3,000 sales leaders', color: 'slate' },
-    { label: 'Participation Rate (%)', field: 'participationRate', placeholder: '25%-50%', color: 'indigo' },
-    { label: 'Monthly People Scanned Per Prysm Owner', field: 'monthlyScans', placeholder: '15', color: 'blue' },
-    { label: 'Subscription Conversion Rate (%)', field: 'conversionRate', placeholder: '10%', color: 'purple' },
-    { label: 'Projected Subscriber Purchase Amount (USD)', field: 'monthlyPurchase', placeholder: '$50', color: 'green' }
-  ];
-
-  const results = [
-    { label: 'Prysm Owners', value: prysmOwners, formula: `${number(data.affiliates)} × ${data.participationRate}%`, color: 'indigo' },
-    { label: 'Total People Scanned', value: totalScanned, formula: `${number(prysmOwners)} × ${data.monthlyScans}`, color: 'blue' },
-    { label: 'Converted Buyers', value: buyers, formula: `${number(totalScanned)} × ${data.conversionRate}%`, color: 'purple' },
-    { label: 'Projected Total Product Sales', value: monthlySales, formula: `${number(buyers)} × ${data.monthlyPurchase}`, color: 'green', currency: true },
-    { label: 'Projected Annualized Product Sales', value: annualSales, formula: `${currency(monthlySales)} × 12`, color: 'yellow', currency: true, final: true }
-  ];
+  const currency = (val: number) => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2 });
+  const number = (val: number) => val.toLocaleString('en-US', { maximumFractionDigits: 0 });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-3">
@@ -65,7 +49,7 @@ export default function PrysmSalesCalculator() {
                   <input
                     type="text"
                     value={format('affiliates', data.affiliates)}
-                    onChange={e => handleChange('affiliates', e.target.value)}
+                    onChange={(e) => handleChange('affiliates', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                     placeholder="100,000 affiliates or 3,000 sales leaders"
                   />
@@ -82,7 +66,7 @@ export default function PrysmSalesCalculator() {
                   <input
                     type="text"
                     value={format('participationRate', data.participationRate)}
-                    onChange={e => handleChange('participationRate', e.target.value)}
+                    onChange={(e) => handleChange('participationRate', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     placeholder="25%-50%"
                   />
@@ -99,7 +83,7 @@ export default function PrysmSalesCalculator() {
                   <input
                     type="text"
                     value={format('monthlyScans', data.monthlyScans)}
-                    onChange={e => handleChange('monthlyScans', e.target.value)}
+                    onChange={(e) => handleChange('monthlyScans', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="15"
                   />
@@ -116,7 +100,7 @@ export default function PrysmSalesCalculator() {
                   <input
                     type="text"
                     value={format('conversionRate', data.conversionRate)}
-                    onChange={e => handleChange('conversionRate', e.target.value)}
+                    onChange={(e) => handleChange('conversionRate', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="10%"
                   />
@@ -133,7 +117,7 @@ export default function PrysmSalesCalculator() {
                   <input
                     type="text"
                     value={format('monthlyPurchase', data.monthlyPurchase)}
-                    onChange={e => handleChange('monthlyPurchase', e.target.value)}
+                    onChange={(e) => handleChange('monthlyPurchase', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="$50"
                   />
@@ -162,7 +146,6 @@ export default function PrysmSalesCalculator() {
               <h2 className="text-lg font-semibold text-gray-800">Results</h2>
             </div>
             <div className="space-y-1">
-              {/* Empty space to align with first input */}
               <div className="h-16"></div>
               <div className="flex justify-center my-1"><ArrowDown className="h-5 w-5 text-slate-500" /></div>
 
