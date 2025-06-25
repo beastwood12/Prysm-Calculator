@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Calculator, Users, DollarSign, TrendingUp, ArrowDown } from 'lucide-react';
 
-export default function App() {
+export default function PrysmSalesCalculator() {
   const [data, setData] = useState({
     affiliates: 0, participationRate: 0, monthlyScans: 0, conversionRate: 0, monthlyPurchase: 0
   });
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field, value) => {
     setData(prev => ({ ...prev, [field]: parseFloat(value.replace(/[$,%]/g, '')) || 0 }));
   };
 
-  const format = (field: string, value: number) => {
+  const format = (field, value) => {
     if (!value) return '';
     if (field.includes('Rate')) return value + '%';
     if (field === 'monthlyPurchase') return '$' + value;
@@ -21,10 +21,11 @@ export default function App() {
   const totalScanned = prysmOwners * data.monthlyScans;
   const buyers = totalScanned * (data.conversionRate / 100);
   const monthlySales = buyers * data.monthlyPurchase;
+  const g15BreakawayBonus = (monthlySales * 0.666) * 0.05;
   const annualSales = monthlySales * 12;
 
-  const currency = (val: number) => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2 });
-  const number = (val: number) => val.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  const currency = val => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2 });
+  const number = val => val.toLocaleString('en-US', { maximumFractionDigits: 0 });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-3">
@@ -205,6 +206,15 @@ export default function App() {
                   <div className="text-xs text-gray-500 bg-white p-2 rounded">
                     Formula: {number(buyers)} × ${data.monthlyPurchase}
                   </div>
+                </div>
+              </div>
+
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-2 my-2">
+                <div className="text-xs text-emerald-800">
+                  <strong>G1-6 Breakaway Bonus (5%):</strong> {currency(g15BreakawayBonus)}
+                </div>
+                <div className="text-xs text-emerald-700 mt-1 italic">
+                  Sales Converted to CV and calculated with a 5% Breakaway Bonus
                 </div>
               </div>
 
