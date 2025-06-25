@@ -147,6 +147,7 @@ export default function PrysmSalesCalculator() {
               <h2 className="text-lg font-semibold text-gray-800">Results</h2>
             </div>
             <div className="space-y-1">
+              {/* Empty space to align with first input */}
               <div className="h-16"></div>
               <div className="flex justify-center my-1"><ArrowDown className="h-5 w-5 text-slate-500" /></div>
 
@@ -154,6 +155,9 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-400">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-sm font-medium text-gray-700">Prysm Owners</span>
+                  </div>
+                  <div className="text-xs text-gray-600 mb-1 invisible">
+                    Spacing to match left column height
                   </div>
                   <div className="text-lg font-semibold text-indigo-600 mb-1">
                     {number(prysmOwners)}
@@ -170,6 +174,9 @@ export default function PrysmSalesCalculator() {
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-sm font-medium text-gray-700">Total People Scanned</span>
                   </div>
+                  <div className="text-xs text-gray-600 mb-1 invisible">
+                    Spacing to match left column height
+                  </div>
                   <div className="text-lg font-semibold text-blue-600 mb-1">
                     {number(totalScanned)}
                   </div>
@@ -185,6 +192,9 @@ export default function PrysmSalesCalculator() {
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-sm font-medium text-gray-700">Converted Buyers</span>
                   </div>
+                  <div className="text-xs text-gray-600 mb-1 invisible">
+                    Spacing to match left column height
+                  </div>
                   <div className="text-lg font-semibold text-purple-600 mb-1">
                     {number(buyers)}
                   </div>
@@ -199,6 +209,9 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-sm font-medium text-gray-700">Projected Monthly Product Sales</span>
+                  </div>
+                  <div className="text-xs text-gray-600 mb-1 invisible">
+                    Spacing to match left column height
                   </div>
                   <div className="text-lg font-semibold text-green-600 mb-1">
                     {currency(monthlySales)}
