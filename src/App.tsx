@@ -21,7 +21,7 @@ export default function PrysmSalesCalculator() {
   const totalScanned = prysmOwners * data.monthlyScans;
   const buyers = totalScanned * (data.conversionRate / 100);
   const monthlySales = buyers * data.monthlyPurchase;
-  const g15BreakawayBonus = (monthlySales * 0.666) * 0.05;
+  const g15BreakawayBonus = (monthlySales * 0.776) * 0.05;
   const annualSales = monthlySales * 12;
 
   const currency = val => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2 });
@@ -62,7 +62,7 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-400">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Participation Rate (%)</label>
                   <div className="text-xs text-gray-600 mb-1 italic">
-                    This is the percent of the people above you believe will purchase (or receive some other way) a Prysm device.
+                    This is the percent of the people above you believe will purchase (or receive some other way) a Prysm device. For context, the US had 50% BR+ participation for the 2021 Collagen launch.
                   </div>
                   <input
                     type="text"
@@ -79,14 +79,14 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Monthly People Scanned Per Prysm Owner</label>
                   <div className="text-xs text-gray-600 mb-1 italic">
-                    The number of people each Prysm owner will scan on a monthly basis.
+                    The number of people each Prysm owner will scan on a monthly basis. For context, based on discussions with current scanner operators, this will likely be between 10-20 scans per month.
                   </div>
                   <input
                     type="text"
                     value={format('monthlyScans', data.monthlyScans)}
                     onChange={(e) => handleChange('monthlyScans', e.target.value)}
                     className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="15"
+                    placeholder="10-20"
                   />
                 </div>
                 <div className="flex justify-center my-1"><ArrowDown className="h-5 w-5 text-blue-500" /></div>
@@ -96,7 +96,7 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-purple-50 p-3 rounded-lg border-l-4 border-purple-400">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Subscription Conversion Rate (%)</label>
                   <div className="text-xs text-gray-600 mb-1 italic">
-                    The percent of people who are scanned that you believe will purchase product (ideally as a subscription).
+                    The percent of people who are scanned that you believe will purchase product (ideally as a subscription). For context, current scanner operators believe this to be about 10%.
                   </div>
                   <input
                     type="text"
