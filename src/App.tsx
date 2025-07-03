@@ -18,6 +18,7 @@ export default function PrysmSalesCalculator() {
   };
 
   const prysmOwners = data.affiliates * (data.participationRate / 100);
+  const prysmDeviceRevenue = prysmOwners * 300;
   const totalScanned = prysmOwners * data.monthlyScans;
   const buyers = totalScanned * (data.conversionRate / 100);
   const monthlySales = buyers * data.monthlyPurchase;
@@ -162,8 +163,11 @@ export default function PrysmSalesCalculator() {
                   <div className="text-lg font-semibold text-indigo-600 mb-1">
                     {number(prysmOwners)}
                   </div>
-                  <div className="text-xs text-gray-500 bg-white p-2 rounded">
+                  <div className="text-xs text-gray-500 bg-white p-2 rounded mb-2">
                     Formula: {number(data.affiliates)} × {data.participationRate}%
+                  </div>
+                  <div className="text-xs text-indigo-700 bg-indigo-100 p-2 rounded">
+                    Device Revenue: {number(prysmOwners)} × $300 = ${number(prysmDeviceRevenue)}
                   </div>
                 </div>
                 <div className="flex justify-center my-1"><ArrowDown className="h-5 w-5 text-indigo-500" /></div>
