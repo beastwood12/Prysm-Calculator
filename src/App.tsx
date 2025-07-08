@@ -63,7 +63,7 @@ export default function PrysmSalesCalculator() {
                 <div className="bg-indigo-50 p-3 rounded-lg border-l-4 border-indigo-400">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Participation Rate (%)</label>
                   <div className="text-xs text-gray-600 mb-1 italic">
-                    This is the percent of the people above you believe will purchase (or receive some other way) a Prysm device. For context, the US had 50% BR+ participation for the 2021 Collagen launch.
+                    This is the percent of the people above you believe will purchase (or receive some other way) a Prysm device. For context, the US had 50% BR+ participation for the 2021 Collagen preview. For the full launch there was a 25% participation rate.
                   </div>
                   <input
                     type="text"
