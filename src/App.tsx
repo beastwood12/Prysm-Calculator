@@ -300,7 +300,7 @@ export default function PrysmSalesCalculator() {
           <div className="bg-white shadow-lg px-4 py-1 rounded-b-xl pb-4">
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 my-2">
               <div className="text-xs text-amber-800">
-                <strong>Disclaimer:</strong> This calculator should only be used for planning and goal setting purposes. This is not a guarantee of income. Generating sales compensation as a Brand Affiliate requires considerable time, effort, and dedication. Success will also depend upon your skills, talents, and leadership abilities. There is no guarantee of financial success, and results will vary widely among participants. A complete summary of earnings at each level can be found <a href="https://www.nuskin.com/content/nuskin/en_PH/corporate/reputation/compensation.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">here</a>.
+                <strong>Disclaimer:</strong> This calculator should only be used for planning and goal setting purposes. This is not a guarantee of income. Generating sales compensation as a Brand Affiliate requires considerable time, effort, and dedication. Success will also depend upon your skills, talents, and leadership abilities. There is no guarantee of financial success, and results will vary widely among participants. A complete summary of earnings at each level can be found <a href="https://www.nuskin.com/content/dam/office/n_america/US/en/business_materials/distearnings.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">here</a>.
               </div>
             </div>
           </div>
